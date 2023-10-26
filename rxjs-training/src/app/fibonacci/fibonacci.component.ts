@@ -6,13 +6,14 @@ import { scan, Observable, take,interval} from 'rxjs';
   templateUrl: './fibonacci.component.html',
   styleUrls: ['./fibonacci.component.css']
 })
-export class FibonacciComponent {
+export class FibonacciComponent{
   private fibonacci:number[] = []
   howmany: number = 0
 
   constructor(){ }
 
 
+  
   calcola_fibonacci1(howmany:number = 10){
     const fibo$ = interval(0).pipe(
       scan(([a, b]) => [b, a + b], [0, 1]),
