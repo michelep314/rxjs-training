@@ -1,15 +1,15 @@
 <div>
     <label>Inserisci un numero n: </label>
     <form >
-        <input type="number" placeholder="default = 10" id="num" #num>
-    <button (click)="calcola_fibonacci1(num.value)">Calcola Fibonacci</button>
+        <input type="number" [(ngModel)]="howmany" placeholder="default = 10" id="num" [ngModelOptions]="{standalone: true}" >
+        <button (click)="calcola_fibonacci1(howmany)">Calcola Fibonacci</button>
     </form>
   </div>
 
   <div>
     <ul class="Fibonacci">
         <li *ngFor="let ele of getFibonacci()">
-            <h3>{{ele}}</h3>
+            <small>{{ele}} </small>
         </li>
     </ul>
 </div>

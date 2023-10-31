@@ -6,15 +6,18 @@ import { scan, Observable, take,interval} from 'rxjs';
   templateUrl: './fibonacci.component.html',
   styleUrls: ['./fibonacci.component.css']
 })
+
+
 export class FibonacciComponent{
   private fibonacci:number[] = []
-  howmany: number = 0
+  public howmany: number = 0
 
   constructor(){ }
 
 
   
   calcola_fibonacci1(howmany:number = 10){
+    this.clear();
     const fibo$ = interval(0).pipe(
       scan(([a, b]) => [b, a + b], [0, 1]),
       take(howmany),
@@ -22,12 +25,13 @@ export class FibonacciComponent{
     fibo$.subscribe({
       next: ([_, current]) => {
         console.log(`${current}`);
-        this.fibonacci.push(current)
+        this.fibonacci.push(current);
       },
       complete: () => {
         console.log('Observable completato.');
       },
     });
+    console.log(howmany)
   }
 
   calcola_fiboancci2():void {
@@ -69,5 +73,12 @@ export class FibonacciComponent{
   getFibonacci(){
     return this.fibonacci;
   }
+
+  getHowmany(x:number){
+    this.howmany = x;
+    return console.log(this.howmany);
+  }
+
+
 
 }
