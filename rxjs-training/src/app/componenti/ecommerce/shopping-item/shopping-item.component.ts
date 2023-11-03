@@ -7,9 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./shopping-item.component.css'],
 })
 export class ShoppingItemComponent {
-  imgSource = 'https://picsum.photos/100'
-  productName = ''
-  productType = ''
+  cardItem = {
+    imgSource:'https://picsum.photos/100',
+    productName:'',
+    productType: ''
+  }
+  
 
   constructor(){}
 
